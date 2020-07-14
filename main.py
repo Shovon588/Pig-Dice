@@ -10,7 +10,7 @@ while(1):
         print("See you soon!")
         break
     
-    winning_score = int(input("Please set a winning score. To leave it default (100) enter 0: "))
+    winning_score = int(input("Please set a winning score: "))
 
     player1 = 0
     player2 = 0
