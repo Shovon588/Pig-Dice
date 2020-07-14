@@ -4,10 +4,12 @@ import sys
 
 
 def roll_dice():
+    """Returns a randomly generated number between 1 to 6"""
     return random.randint(1,6)
 
 
 def print_result(player1, player2):
+    """Prints out the current score of two players"""
     print("#############################")
     print("##     Current Score:      ##")
     print("##                         ##")        
@@ -16,6 +18,10 @@ def print_result(player1, player2):
 
 
 def computers_turn(who,computer,number,lastone):
+    """Automated turns played by computer.
+    We assumed to keep rolling dice will be optimal
+    if the last 1 happend less than 6 turns ago."""
+    
     time.sleep(2)
     number = roll_dice()
     if number==1:
@@ -30,6 +36,9 @@ def computers_turn(who,computer,number,lastone):
 
 
 def players_turn(who,player,number,lastone):
+    """Let the player decide wheather he/she
+    wants to make the dice roll or wants to transfer."""
+    
     print("1. Roll Dice\t2. Transfer Dice\t3. Quit Match")
     decision = input("What do you want? (1/2/3): ")
     
@@ -53,6 +62,8 @@ def players_turn(who,player,number,lastone):
     
 
 def declare_winner(p1name, p2name, p1score, p2score, winning_score=100):
+    """Decides who is the winner based on current score
+    of two playes and winning score."""
     if p1score>=winning_score:
         print("\n%s wins. Congratulations." %(p1name))
         print_result(p1score,p2score)
@@ -65,6 +76,8 @@ def declare_winner(p1name, p2name, p1score, p2score, winning_score=100):
 
 
 def play(player1,player2,lastone,number,who,play_with,winning_score):
+    """Main function to play the game"""
+    
     while True:
         print("---------------------------------------------------\n")
         if number>0:
